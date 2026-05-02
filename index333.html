@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ✅ SEO Meta Tags -->
+    <title>CyberShield | Elite Digital Defense</title>
+    <meta name="description" content="CyberShield delivers military-grade endpoint protection, real-time threat intelligence, and zero-trust security architecture to protect your enterprise against tomorrow's cyber threats.">
+    <meta name="keywords" content="cybersecurity, endpoint protection, threat intelligence, zero trust, penetration testing, cloud security, incident response">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="CyberShield Systems">
+
+    <!-- ✅ Open Graph (for social sharing) -->
+    <meta property="og:title" content="CyberShield | Elite Digital Defense">
+    <meta property="og:description" content="Military-grade cybersecurity — endpoint protection, threat intelligence, and continuous monitoring for your enterprise.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.cybershield.io">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&q=80">
+
+    <!-- ✅ Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CyberShield | Elite Digital Defense">
+    <meta name="twitter:description" content="Military-grade cybersecurity for the enterprise. Protect your perimeter with CyberShield.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&q=80">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.cybershield.io">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ── Base & Typography ── */
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #07080D;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, .font-raj { font-family: 'Rajdhani', sans-serif; }
+
+        /* ── Design Tokens ── */
+        .bg-card  { background-color: #111827; }
+        .text-cyan  { color: #00D4FF; }
+        .text-alert { color: #FF3E00; }
+        .neon-border { border: 1px solid rgba(0,212,255,0.3); transition: all 0.3s ease; }
+        .border-cyan { border-color: #00D4FF; }
+
+        /* ── Glow Hover ── */
+        .neon-hover:hover {
+            box-shadow: 0 0 25px rgba(0,212,255,0.4);
+            border-color: #00D4FF;
+            transform: translateY(-5px);
+        }
+        .neon-text-glow { text-shadow: 0 0 15px rgba(0,212,255,0.7); }
+
+        /* ── Buttons ── */
+        .btn-outline {
+            border: 1px solid #00D4FF;
+            box-shadow: 0 0 10px rgba(0,212,255,0.2);
+            transition: all 0.3s ease;
+        }
+        .btn-outline:hover {
+            background: rgba(0,212,255,0.1);
+            box-shadow: 0 0 20px rgba(0,212,255,0.6);
+        }
+        .btn-solid {
+            background: #00D4FF;
+            color: #07080D;
+            box-shadow: 0 0 15px rgba(0,212,255,0.4);
+            transition: all 0.3s ease;
+        }
+        .btn-solid:hover { box-shadow: 0 0 25px rgba(0,212,255,0.8); }
+
+        /* ── Animations ── */
+        @keyframes float {
+            0%   { transform: translateY(0px); }
+            50%  { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+
+        @keyframes pulse-glow {
+            0%   { box-shadow: 0 0 15px rgba(0,212,255,0.2); }
+            50%  { box-shadow: 0 0 35px rgba(0,212,255,0.6); }
+            100% { box-shadow: 0 0 15px rgba(0,212,255,0.2); }
+        }
+        .animate-pulse-glow { animation: pulse-glow 3s infinite; }
+
+        @keyframes scanline {
+            0%   { top: 0; }
+            100% { top: 100%; }
+        }
+        .animate-scan {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #00D4FF, transparent);
+            opacity: 0.6;
+            animation: scanline 3s linear infinite;
+        }
+
+        /* ── Scroll Reveal ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Cyber Grid Background ── */
+        .cyber-grid {
+            background-image:
+                linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        /* ── Mobile Menu ── */
+        #mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 0;
+            background: #07080D;
+            border-top: 1px solid rgba(0,212,255,0.2);
+        }
+        #mobile-menu.open { display: flex; }
+        #mobile-menu a {
+            padding: 14px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: #9ca3af;
+            border-bottom: 1px solid rgba(0,212,255,0.1);
+            transition: color 0.2s, background 0.2s;
+        }
+        #mobile-menu a:hover { color: #00D4FF; background: rgba(0,212,255,0.05); }
+        #mobile-menu .mobile-cta {
+            margin: 16px 24px;
+            text-align: center;
+            padding: 12px;
+            border-radius: 4px;
+        }
+
+        /* ── Hamburger ── */
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: #fff;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        /* ── Service Cards ── */
+        .service-card {
+            background: #111827;
+            border: 1px solid rgba(0,212,255,0.2);
+            border-radius: 12px;
+            padding: 28px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 2px;
+            background: linear-gradient(to right, transparent, #00D4FF, transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .service-card:hover {
+            border-color: #00D4FF;
+            box-shadow: 0 0 30px rgba(0,212,255,0.15);
+            transform: translateY(-4px);
+        }
+        .service-card:hover::before { opacity: 1; }
+        .service-icon {
+            width: 48px; height: 48px;
+            background: rgba(0,212,255,0.1);
+            border: 1px solid rgba(0,212,255,0.3);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px;
+            margin-bottom: 18px;
+        }
+
+        /* ── Form ── */
+        .form-input {
+            width: 100%;
+            background: #07080D;
+            border: 1px solid rgba(0,212,255,0.3);
+            border-radius: 6px;
+            padding: 12px 16px;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            outline: none;
+        }
+        .form-input:focus {
+            border-color: #00D4FF;
+            box-shadow: 0 0 10px rgba(0,212,255,0.2);
+        }
+        .form-input.error {
+            border-color: #FF3E00;
+            box-shadow: 0 0 10px rgba(255,62,0,0.2);
+        }
+        .form-input::placeholder { color: #4b5563; }
+        .field-error {
+            color: #FF3E00;
+            font-size: 12px;
+            margin-top: 4px;
+            display: none;
+        }
+        .field-error.show { display: block; }
+        .form-success {
+            display: none;
+            background: rgba(0,212,255,0.1);
+            border: 1px solid rgba(0,212,255,0.4);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            color: #00D4FF;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen cyber-grid relative">
+
+    <!-- ═══════════════════════════════════════
+         ✅ NAVIGATION — Fixed, responsive, mobile-ready
+    ═══════════════════════════════════════ -->
+    <nav class="fixed w-full z-50 bg-[#07080D]/95 backdrop-blur-md border-b border-[#00D4FF]/20 transition-all" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+            <!-- ✅ Brand: CyberShield everywhere -->
+            <a href="#" class="text-2xl font-raj font-bold text-white flex items-center gap-2">
+                <span class="text-cyan text-3xl animate-pulse">⬢</span> CyberShield
+            </a>
+
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex gap-8 text-sm font-semibold tracking-wider text-gray-300">
+                <a href="#services"   class="hover:text-[#00D4FF] transition-colors">SERVICES</a>
+                <a href="#why-us"     class="hover:text-[#00D4FF] transition-colors">WHY US</a>
+                <a href="#threats"    class="hover:text-[#00D4FF] transition-colors">THREAT INTEL</a>
+                <a href="#contact"    class="hover:text-[#00D4FF] transition-colors">CONTACT</a>
+            </div>
+
+            <!-- Desktop CTA -->
+            <a href="#contact" class="btn-solid font-raj font-bold py-2 px-6 rounded text-sm uppercase tracking-widest hidden md:block animate-pulse-glow">
+                Contact Us
+            </a>
+
+            <!-- ✅ Hamburger Button (mobile only) -->
+            <button class="hamburger md:hidden flex flex-col justify-center cursor-pointer p-1" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <!-- ✅ Mobile Menu -->
+        <div id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+            <a href="#services"  onclick="closeMobileMenu()">SERVICES</a>
+            <a href="#why-us"    onclick="closeMobileMenu()">WHY US</a>
+            <a href="#threats"   onclick="closeMobileMenu()">THREAT INTEL</a>
+            <a href="#contact"   onclick="closeMobileMenu()">CONTACT</a>
+            <a href="#contact" class="mobile-cta btn-solid font-raj font-bold text-sm uppercase tracking-widest" onclick="closeMobileMenu()">Get a Free Audit</a>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════
+         1. HERO SECTION
+    ═══════════════════════════════════════ -->
+    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 px-6 overflow-hidden">
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-[#00D4FF] rounded-full mix-blend-screen filter blur-[150px] opacity-10 pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#FF3E00] rounded-full mix-blend-screen filter blur-[180px] opacity-5 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="reveal active">
+                <div class="inline-flex items-center gap-2 border border-[#00D4FF]/30 rounded-full px-4 py-1 mb-6 text-sm text-cyan font-semibold tracking-widest">
+                    <span class="w-2 h-2 rounded-full bg-[#00D4FF] animate-pulse"></span>
+                    THREAT LEVEL: ELEVATED — STAY PROTECTED
+                </div>
+                <h1 class="text-5xl lg:text-7xl font-raj font-bold leading-tight mb-6">
+                    Your First Line of<br>
+                    <span class="text-cyan neon-text-glow">Defense</span> in the<br>
+                    Digital World
+                </h1>
+                <p class="text-lg text-gray-400 mb-10 max-w-xl leading-relaxed">
+                    Military-grade endpoint protection, threat intelligence, and continuous monitoring to secure your enterprise against tomorrow's zero-day threats.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#contact" class="btn-solid font-raj font-bold py-3 px-8 rounded text-lg animate-pulse-glow">Get a Free Audit</a>
+                    <a href="#services" class="btn-outline font-raj font-bold py-3 px-8 rounded text-lg text-cyan">Our Services</a>
+                </div>
+            </div>
+
+            <!-- Animated Hero Visual -->
+            <div class="relative hidden lg:block animate-float reveal active">
+                <div class="w-full h-[500px] neon-border rounded-lg bg-card overflow-hidden relative group">
+                    <div class="absolute inset-0 bg-[#00D4FF]/20 mix-blend-overlay z-10 group-hover:bg-transparent transition-all duration-500"></div>
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                         alt="CyberShield security infrastructure control center"
+                         class="w-full h-full object-cover">
+                    <div class="animate-scan z-20"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ═══════════════════════════════════════
+         2. LIVE STATS BAR
+    ═══════════════════════════════════════ -->
+    <section class="border-y border-[#00D4FF]/20 bg-[#07080D]/80 backdrop-blur-md relative z-20">
+        <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center" id="stats-section">
+            <div class="reveal">
+                <div class="text-5xl font-raj font-bold text-cyan mb-2 flex justify-center items-center"><span class="counter" data-target="96">0</span>%</div>
+                <div class="text-sm text-gray-400 uppercase tracking-widest">Client Satisfaction</div>
+            </div>
+            <div class="reveal" style="transition-delay:100ms">
+                <div class="text-5xl font-raj font-bold text-cyan mb-2 flex justify-center items-center"><span class="counter" data-target="500">0</span>+</div>
+                <div class="text-sm text-gray-400 uppercase tracking-widest">Companies Protected</div>
+            </div>
+            <div class="reveal" style="transition-delay:200ms">
+                <div class="text-5xl font-raj font-bold text-cyan mb-2 flex justify-center items-center"><span class="counter" data-target="24">0</span>/7</div>
+                <div class="text-sm text-gray-400 uppercase tracking-widest">Real-Time Monitoring</div>
+            </div>
+            <div class="reveal" style="transition-delay:300ms">
+                <div class="text-5xl font-raj font-bold text-cyan mb-2 flex justify-center items-center"><span class="counter" data-target="89">0</span>%</div>
+                <div class="text-sm text-gray-400 uppercase tracking-widest">Faster Response</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         3. ✅ SERVICES SECTION (was missing)
+    ═══════════════════════════════════════ -->
+    <section id="services" class="py-24 px-6 relative bg-[#09101A]">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[1px] bg-gradient-to-r from-transparent via-[#00D4FF]/30 to-transparent"></div>
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <p class="text-cyan text-sm font-semibold uppercase tracking-widest mb-3">What We Offer</p>
+                <h2 class="text-4xl font-raj font-bold">Enterprise-Grade <span class="text-cyan">Security Services</span></h2>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">A full-spectrum defense platform engineered for organizations that cannot afford to be compromised.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <div class="service-card reveal">
+                    <div class="service-icon">🛡️</div>
+                    <h3 class="font-raj font-bold text-xl mb-2">Endpoint Protection</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">AI-driven antivirus, behavioral analysis, and device control across every endpoint in your organization — from servers to mobile.</p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="text-xs border border-[#00D4FF]/30 text-cyan px-2 py-1 rounded">EDR</span>
+                        <span class="text-xs border border-[#00D4FF]/30 text-cyan px-2 py-1 rounded">XDR</span>
+                        <span class="text-xs border border-[#00D4FF]/30 text-cyan px-2 py-1 rounded">MDM</span>
+                    </div>
+                </div>
+
+                <div class="service-card reveal" style="transition-delay:80ms">
+                    <div class="service-icon">🔍</div>
+                    <h3 class="font-raj font-bold text-xl mb-2">Threat Intelligence</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Real-time feeds from global threat actors, dark web monitoring, and predictive analytics that neutralize attacks before execution.</p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="text-xs border border-[#00D4FF]/30 text-cyan px-2 py-1 rounded">OSINT</span>
+                        <span class="text-xs border border-[#00D4FF]/30 text-cyan px-2 py-1 rounded">Dark Web</span>
+                        <span class="text-xs border border-[#00D4FF]/30 text-cyan px-2 py-1 rounded">IOCs</span>
+                    </div>
+                </div>
+
+                <div class="service-card reveal" style="transition-delay:160ms">
+                    <div class="service-icon">⚡</div>
+                    <h3 class="font-raj font-bold text-xl mb-2">Incident Response</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Rapid containment, forensic investigation, and full recovery orchestration by a 24/7 certified response team. Sub-60-second SLA.</p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="text-xs border border-[#00D4FF]/30 text-cyan px-2 py-1 rounded">DFIR</span>
+                        <span class="text-xs border border-[#00D4FF]/30 text-cyan px-2 py-1 rounded">SOC</span>
+                        <span class="text-xs border border-[#00D4FF]/30 text-cyan px-2 py-1 rounded">SIEM</span>
+                    </div>
+                </div>
+
+                <div class="service-card reveal" style="transition-delay:240ms">
+                    <div class="service-icon">☁️</div>
+                    <h3 class="font-raj font-bold text-xl mb-2">Cloud Security</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Posture management, workload protection, and misconfiguration detection across AWS, Azure, and GCP environments.</p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="text-xs border border-[#00D4FF]/30 text-cyan px-2 py-1 rounded">CSPM</span>
+                        <span class="text-xs border border-[#00D4FF]/30 text-cyan px-2 py-1 rounded">CWPP</span>
+                        <span class="text-xs border border-[#00D4FF]/30 text-cyan px-2 py-1 rounded">CASB</span>
+                    </div>
+                </div>
+
+                <div class="service-card reveal" style="transition-delay:320ms">
+                    <div class="service-icon">🔒</div>
+                    <h3 class="font-raj font-bold text-xl mb-2">Zero Trust Architecture</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Never trust, always verify. We design and deploy ZTNA frameworks that eliminate implicit trust across your entire network perimeter.</p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="text-xs border border-[#00D4FF]/30 text-cyan px-2 py-1 rounded">ZTNA</span>
+                        <span class="text-xs border border-[#00D4FF]/30 text-cyan px-2 py-1 rounded">MFA</span>
+                        <span class="text-xs border border-[#00D4FF]/30 text-cyan px-2 py-1 rounded">IAM</span>
+                    </div>
+                </div>
+
+                <div class="service-card reveal" style="transition-delay:400ms">
+                    <div class="service-icon">🎯</div>
+                    <h3 class="font-raj font-bold text-xl mb-2">Penetration Testing</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Ethical hackers simulate real-world attack chains across your infrastructure, delivering actionable remediation reports.</p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="text-xs border border-[#00D4FF]/30 text-cyan px-2 py-1 rounded">Red Team</span>
+                        <span class="text-xs border border-[#00D4FF]/30 text-cyan px-2 py-1 rounded">Bug Bounty</span>
+                        <span class="text-xs border border-[#00D4FF]/30 text-cyan px-2 py-1 rounded">VAPT</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         4. WHY CHOOSE US
+    ═══════════════════════════════════════ -->
+    <section id="why-us" class="py-24 px-6 relative">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            <div class="relative reveal">
+                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                     alt="Binary code representing CyberShield's security algorithms"
+                     class="rounded-lg border border-[#00D4FF]/30 shadow-[0_0_30px_rgba(0,212,255,0.15)] opacity-80">
+                <div class="absolute -bottom-6 -right-6 bg-card p-6 rounded-lg neon-border animate-float">
+                    <span class="text-4xl">🔐</span>
+                    <p class="font-raj font-bold text-cyan mt-2 text-xl">Zero Breach Policy</p>
+                </div>
+            </div>
+            <div class="reveal">
+                <p class="text-cyan text-sm font-semibold uppercase tracking-widest mb-3">Our Advantage</p>
+                <h2 class="text-4xl font-raj font-bold mb-6">Why Industry Leaders Trust <span class="text-cyan">CyberShield</span></h2>
+                <ul class="space-y-6">
+                    <li class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded bg-[#00D4FF]/10 border border-[#00D4FF] flex items-center justify-center text-cyan shrink-0 mt-1">✓</div>
+                        <div>
+                            <h4 class="font-raj font-bold text-lg">ISO 27001 Certified</h4>
+                            <p class="text-gray-400 text-sm">We adhere to the strictest international standards for information security management systems.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded bg-[#00D4FF]/10 border border-[#00D4FF] flex items-center justify-center text-cyan shrink-0 mt-1">✓</div>
+                        <div>
+                            <h4 class="font-raj font-bold text-lg">Ex-Military Intelligence Team</h4>
+                            <p class="text-gray-400 text-sm">Our core response team is staffed by veterans of global cyber-warfare divisions and intelligence agencies.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded bg-[#00D4FF]/10 border border-[#00D4FF] flex items-center justify-center text-cyan shrink-0 mt-1">✓</div>
+                        <div>
+                            <h4 class="font-raj font-bold text-lg">Proprietary AI Detection Engine</h4>
+                            <p class="text-gray-400 text-sm">Machine learning algorithms that predict and neutralize threats before they execute — average detection time under 3 seconds.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded bg-[#00D4FF]/10 border border-[#00D4FF] flex items-center justify-center text-cyan shrink-0 mt-1">✓</div>
+                        <div>
+                            <h4 class="font-raj font-bold text-lg">Sub-60-Second SLA Guarantee</h4>
+                            <p class="text-gray-400 text-sm">Contractually guaranteed response time to critical incidents — backed by financial penalties if we miss the mark.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         5. THREAT INTELLIGENCE / BLOG
+    ═══════════════════════════════════════ -->
+    <section id="threats" class="py-24 px-6 relative bg-[#09101A]">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <p class="text-cyan text-sm font-semibold uppercase tracking-widest mb-3">Stay Informed</p>
+                <h2 class="text-4xl font-raj font-bold">Latest <span class="text-cyan">Threat Intelligence</span></h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-card rounded-lg overflow-hidden neon-border neon-hover group reveal cursor-pointer">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1614064641913-6b7140414f14?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                             alt="Server rack infrastructure" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs text-cyan font-bold tracking-widest mb-2">ZERO-DAY EXPLOIT</div>
+                        <h3 class="text-xl font-raj font-bold mb-3">New Ransomware Strain Targets Cloud Infrastructure</h3>
+                        <p class="text-gray-400 text-sm mb-4">A technical breakdown of how the 'Nebula' ransomware is bypassing traditional cloud security gateways.</p>
+                        <span class="text-cyan text-sm font-bold hover:text-white transition-colors">READ REPORT →</span>
+                    </div>
+                </div>
+
+                <div class="bg-card rounded-lg overflow-hidden neon-border neon-hover group reveal cursor-pointer" style="transition-delay:100ms">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1563206767-5b18f218e8de?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                             alt="Hacker at computer screen" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs text-cyan font-bold tracking-widest mb-2">SOCIAL ENGINEERING</div>
+                        <h3 class="text-xl font-raj font-bold mb-3">The Rise of AI-Generated Phishing Attacks</h3>
+                        <p class="text-gray-400 text-sm mb-4">How threat actors are utilizing LLMs to craft hyper-personalized, high-converting phishing emails at scale.</p>
+                        <span class="text-cyan text-sm font-bold hover:text-white transition-colors">READ REPORT →</span>
+                    </div>
+                </div>
+
+                <div class="bg-card rounded-lg overflow-hidden neon-border neon-hover group reveal cursor-pointer" style="transition-delay:200ms">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                             alt="Server room" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs text-cyan font-bold tracking-widest mb-2">COMPLIANCE</div>
+                        <h3 class="text-xl font-raj font-bold mb-3">Preparing for the 2026 Data Privacy Regulations</h3>
+                        <p class="text-gray-400 text-sm mb-4">A checklist for CISOs to ensure enterprise networks remain compliant with new global standards taking effect Q3.</p>
+                        <span class="text-cyan text-sm font-bold hover:text-white transition-colors">READ REPORT →</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         6. TESTIMONIALS
+    ═══════════════════════════════════════ -->
+    <section class="py-24 px-6 border-y border-[#00D4FF]/10 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <p class="text-cyan text-sm font-semibold uppercase tracking-widest mb-3">Trusted By Leaders</p>
+                <h2 class="text-3xl font-raj font-bold">Client <span class="text-cyan">Clearance</span></h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-card/50 backdrop-blur-md p-8 rounded-xl neon-border reveal">
+                    <div class="flex items-center gap-4 mb-6">
+                        <img src="https://i.pravatar.cc/150?img=11" alt="Marcus R., CTO of FinTech Global" class="w-14 h-14 rounded-full border-2 border-cyan">
+                        <div>
+                            <h4 class="font-raj font-bold text-lg">Marcus R.</h4>
+                            <p class="text-xs text-gray-500 uppercase tracking-wider">CTO, FinTech Global</p>
+                        </div>
+                    </div>
+                    <div class="text-cyan mb-4 text-xl" aria-label="5 stars">★★★★★</div>
+                    <p class="text-gray-300 text-sm italic">"CyberShield stopped a coordinated DDoS attack on our primary servers in under 45 seconds. Their automated response times are truly military grade."</p>
+                </div>
+                <div class="bg-card/50 backdrop-blur-md p-8 rounded-xl neon-border reveal" style="transition-delay:100ms">
+                    <div class="flex items-center gap-4 mb-6">
+                        <img src="https://i.pravatar.cc/150?img=44" alt="Sarah J., VP Ops at HealthNet" class="w-14 h-14 rounded-full border-2 border-cyan">
+                        <div>
+                            <h4 class="font-raj font-bold text-lg">Sarah J.</h4>
+                            <p class="text-xs text-gray-500 uppercase tracking-wider">VP Ops, HealthNet</p>
+                        </div>
+                    </div>
+                    <div class="text-cyan mb-4 text-xl" aria-label="5 stars">★★★★★</div>
+                    <p class="text-gray-300 text-sm italic">"Transitioning our legacy medical systems to their zero-trust architecture was seamless. We haven't had a single compliance breach since deployment."</p>
+                </div>
+                <div class="bg-card/50 backdrop-blur-md p-8 rounded-xl neon-border reveal" style="transition-delay:200ms">
+                    <div class="flex items-center gap-4 mb-6">
+                        <img src="https://i.pravatar.cc/150?img=33" alt="David L., Director at AeroLogistics" class="w-14 h-14 rounded-full border-2 border-cyan">
+                        <div>
+                            <h4 class="font-raj font-bold text-lg">David L.</h4>
+                            <p class="text-xs text-gray-500 uppercase tracking-wider">Director, AeroLogistics</p>
+                        </div>
+                    </div>
+                    <div class="text-cyan mb-4 text-xl" aria-label="5 stars">★★★★★</div>
+                    <p class="text-gray-300 text-sm italic">"The real-time threat intelligence dashboard gives our board absolute peace of mind. We can literally watch threats being neutralized globally."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         7. ✅ CONTACT — with form validation
+    ═══════════════════════════════════════ -->
+    <section id="contact" class="py-24 px-6 relative overflow-hidden">
+        <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#00D4FF] rounded-full mix-blend-screen filter blur-[150px] opacity-10 pointer-events-none"></div>
+        <div class="absolute top-0 left-0 w-[300px] h-[300px] bg-[#FF3E00] rounded-full mix-blend-screen filter blur-[150px] opacity-5 pointer-events-none"></div>
+
+        <div class="max-w-3xl mx-auto bg-card/80 backdrop-blur-md p-10 rounded-xl neon-border relative z-10 reveal">
+            <div class="text-center mb-8">
+                <p class="text-cyan text-sm font-semibold uppercase tracking-widest mb-2">Initiate Contact</p>
+                <h2 class="text-3xl font-raj font-bold mb-2">Secure Your Perimeter</h2>
+                <p class="text-gray-400">Initiate contact for a highly confidential infrastructure assessment.</p>
+            </div>
+
+            <!-- Success Message -->
+            <div class="form-success" id="form-success" role="alert">
+                <div class="text-3xl mb-2">✓</div>
+                <div>Transmission received. A CyberShield analyst will contact you within 24 hours.</div>
+            </div>
+
+            <!-- Contact Form -->
+            <form id="contact-form" novalidate>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <input type="text" id="name" name="name" placeholder="Full Name" class="form-input" autocomplete="name">
+                        <p class="field-error" id="name-error">Full name is required.</p>
+                    </div>
+                    <div>
+                        <input type="email" id="email" name="email" placeholder="Corporate Email" class="form-input" autocomplete="email">
+                        <p class="field-error" id="email-error">Please enter a valid email address.</p>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <input type="text" id="company" name="company" placeholder="Company / Organization" class="form-input" autocomplete="organization">
+                    <p class="field-error" id="company-error">Company name is required.</p>
+                </div>
+                <div class="mb-6">
+                    <textarea id="message" name="message" rows="4" placeholder="Briefly describe your security concerns..." class="form-input" style="resize:vertical;min-height:100px;"></textarea>
+                    <p class="field-error" id="message-error">Please describe your security concerns.</p>
+                </div>
+                <button type="submit" id="submit-btn" class="w-full btn-solid font-raj font-bold py-4 rounded text-lg uppercase tracking-widest animate-pulse-glow hover:scale-[1.01] transition-transform">
+                    Request Free Consultation
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         ✅ FOOTER — Consistent branding
+    ═══════════════════════════════════════ -->
+    <footer class="border-t border-[#00D4FF]/20 bg-[#07080D] py-10 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-2 font-raj font-bold text-xl text-white">
+                    <span class="text-cyan text-2xl">⬢</span> CyberShield
+                </div>
+                <div class="flex gap-6 text-sm text-gray-500">
+                    <a href="#services" class="hover:text-cyan transition-colors">Services</a>
+                    <a href="#why-us"   class="hover:text-cyan transition-colors">Why Us</a>
+                    <a href="#threats"  class="hover:text-cyan transition-colors">Threat Intel</a>
+                    <a href="#contact"  class="hover:text-cyan transition-colors">Contact</a>
+                </div>
+                <p class="text-gray-600 text-sm">&copy; 2026 CyberShield Systems. All external communications encrypted.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ═══════════════════════════════════════
+         SCRIPTS
+    ═══════════════════════════════════════ -->
+    <script>
+        /* ── 1. Scroll Reveal ── */
+        function revealOnScroll() {
+            document.querySelectorAll('.reveal').forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 80) {
+                    el.classList.add('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', revealOnScroll, { passive: true });
+        revealOnScroll();
+
+        /* ── 2. Animated Counters ── */
+        let countersRun = false;
+        function runCounters() {
+            if (countersRun) return;
+            const statsEl = document.getElementById('stats-section');
+            if (statsEl && statsEl.getBoundingClientRect().top < window.innerHeight) {
+                countersRun = true;
+                document.querySelectorAll('.counter').forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    let current = 0;
+                    const step = target / 180;
+                    const tick = () => {
+                        current += step;
+                        if (current < target) {
+                            counter.textContent = Math.ceil(current);
+                            requestAnimationFrame(tick);
+                        } else {
+                            counter.textContent = target;
+                        }
+                    };
+                    tick();
+                });
+            }
+        }
+        window.addEventListener('scroll', runCounters, { passive: true });
+        runCounters();
+
+        /* ── 3. Mobile Hamburger Menu ── */
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu   = document.getElementById('mobile-menu');
+
+        hamburgerBtn.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('open');
+            hamburgerBtn.classList.toggle('open', isOpen);
+            hamburgerBtn.setAttribute('aria-expanded', isOpen);
+        });
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('open');
+            hamburgerBtn.classList.remove('open');
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
+        }
+
+        /* ── 4. Navbar scroll shadow ── */
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').style.borderBottomColor =
+                window.scrollY > 40 ? 'rgba(0,212,255,0.35)' : 'rgba(0,212,255,0.2)';
+        }, { passive: true });
+
+        /* ── 5. ✅ Form Validation ── */
+        const form = document.getElementById('contact-form');
+
+        function showError(id, show) {
+            const input = document.getElementById(id);
+            const error = document.getElementById(id + '-error');
+            if (show) {
+                input.classList.add('error');
+                error.classList.add('show');
+            } else {
+                input.classList.remove('error');
+                error.classList.remove('show');
+            }
+        }
+
+        function validateEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+        }
+
+        // Live validation on blur
+        document.getElementById('name').addEventListener('blur',    () => showError('name',    !document.getElementById('name').value.trim()));
+        document.getElementById('email').addEventListener('blur',   () => showError('email',   !validateEmail(document.getElementById('email').value)));
+        document.getElementById('company').addEventListener('blur', () => showError('company', !document.getElementById('company').value.trim()));
+        document.getElementById('message').addEventListener('blur', () => showError('message', !document.getElementById('message').value.trim()));
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name    = document.getElementById('name').value.trim();
+            const email   = document.getElementById('email').value.trim();
+            const company = document.getElementById('company').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            let valid = true;
+
+            if (!name)                { showError('name', true);    valid = false; } else { showError('name', false); }
+            if (!validateEmail(email)){ showError('email', true);   valid = false; } else { showError('email', false); }
+            if (!company)             { showError('company', true); valid = false; } else { showError('company', false); }
+            if (!message)             { showError('message', true); valid = false; } else { showError('message', false); }
+
+            if (!valid) return;
+
+            // ✅ Success state
+            const btn = document.getElementById('submit-btn');
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                form.style.display = 'none';
+                document.getElementById('form-success').style.display = 'block';
+            }, 900);
+        });
+    </script>
+</body>
+</html>
